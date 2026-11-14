@@ -1,4 +1,4 @@
-# Simple Calculator
+# Simple Calculator (Python)
 
 A small command-line calculator written in Python.
 It can add, subtract, multiply and divide two numbers.
