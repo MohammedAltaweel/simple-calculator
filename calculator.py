@@ -17,7 +17,9 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    """Return a divided by b."""
+    """Return a divided by b. Raise ValueError if b is zero."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
     return a / b
 
 
@@ -43,7 +45,10 @@ def main():
         a = float(input("First number: "))
         b = float(input("Second number: "))
         symbol, func = OPERATIONS[choice]
-        print(f"{a} {symbol} {b} = {func(a, b)}")
+        try:
+            print(f"{a} {symbol} {b} = {func(a, b)}")
+        except ValueError as error:
+            print(f"Error: {error}")
 
 
 if __name__ == "__main__":
