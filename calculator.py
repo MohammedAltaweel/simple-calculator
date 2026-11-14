@@ -17,8 +17,19 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    """Return a divided by b."""
+    """Return a divided by b. Raise ValueError if b is zero."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
     return a / b
+
+
+def read_number(prompt):
+    """Ask the user for a number until a valid one is entered."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Please enter a valid number.")
 
 
 OPERATIONS = {
@@ -40,10 +51,13 @@ def main():
         if choice not in OPERATIONS:
             print("Invalid choice.")
             continue
-        a = float(input("First number: "))
-        b = float(input("Second number: "))
+        a = read_number("First number: ")
+        b = read_number("Second number: ")
         symbol, func = OPERATIONS[choice]
-        print(f"{a} {symbol} {b} = {func(a, b)}")
+        try:
+            print(f"{a} {symbol} {b} = {func(a, b)}")
+        except ValueError as error:
+            print(f"Error: {error}")
 
 
 if __name__ == "__main__":

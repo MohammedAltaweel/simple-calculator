@@ -1,4 +1,4 @@
-# Simple Calculator (Python)
+# Simple Calculator (Python) - Unit 3 Project
 
 A small command-line calculator written in Python.
 It can add, subtract, multiply and divide two numbers.
